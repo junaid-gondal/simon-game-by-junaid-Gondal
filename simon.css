@@ -1,0 +1,91 @@
+body
+{
+background-color: azure;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+}
+.frt
+{   display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    height: 100px;
+    font-size: 3rem;
+    color:darkorange;
+}
+.container
+{ 
+
+ height:350px;
+ width: 400px;
+ 
+}
+.box1
+{   
+    width:400px;
+    height:180px;
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+button
+{ margin-top: 10px;
+height:130px;
+width:130px;
+border: 5px solid black;
+border-radius: 15px;
+cursor: pointer;
+
+
+}
+.bt1
+{background-color:green}
+.bt2
+{ background-color:red}
+.bt3
+{background-color:blue}
+.bt4
+{background-color:yellow}
+
+
+.bt1:active {
+  background-color: #33dfa0;
+
+}
+.bt2:active {
+  background-color: #d3a0a3;
+
+}
+.bt3:active {
+  background-color: #99bcd5;
+  
+}
+
+.bt4:active {
+  background-color: #c3c35f;
+  
+}
+.btt
+{
+    width:100px;
+    height:70px;
+    background-color: gold;
+    color:white;
+    font-size: 2rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.startbtn
+{    
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-style: italic;
+}
+.btt:active {
+  background-color: #a8a875;
+  
+}
+
