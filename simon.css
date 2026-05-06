@@ -31,7 +31,7 @@ align-items: center;
     justify-content: space-evenly;
     
 }
-button
+.bt
 { margin-top: 10px;
 height:130px;
 width:130px;
@@ -39,7 +39,17 @@ border: 5px solid black;
 border-radius: 15px;
 cursor: pointer;
 
+}
 
+
+.active {
+  background-color: white !important;
+  transform: scale(1);
+}
+bb:active
+{
+  
+background-color: aliceblue;
 }
 .bt1
 {background-color:green}
@@ -51,23 +61,7 @@ cursor: pointer;
 {background-color:yellow}
 
 
-.bt1:active {
-  background-color: #33dfa0;
 
-}
-.bt2:active {
-  background-color: #d3a0a3;
-
-}
-.bt3:active {
-  background-color: #99bcd5;
-  
-}
-
-.bt4:active {
-  background-color: #c3c35f;
-  
-}
 .btt
 {
     width:100px;
