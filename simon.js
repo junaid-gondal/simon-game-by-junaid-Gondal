@@ -1,89 +1,84 @@
-let a=document.getElementById('b1');
-let b=document.getElementById('b2');
-let c=document.getElementById('b3');
-let d=document.getElementById('b4');
-let div=document.getElementById('di');
-let start=document.getElementById('start');
- let aa=0;
- let startcond=false;
-const buttons = document.querySelectorAll('button');
-arr=Array.from(buttons)
+let buttons=document.querySelectorAll(".bb");
 let string="";
-let bb;
-let m;
-let new_string="";
-let third_string="";
-function bigcod()
-{  while(startcond=true)
-{for(let i=0; i<=aa; i++)
-{ 
-    let r=Math.floor(Math.random() * 4)
-        string=string + r;
-}
-  for(let j=0; j<=string.length(); j++)
-{    m=string[j];
-    if(m=="0")
-    {
-        bb="a";
-    }
-    if(m=="1")
-    {
-        bb="b";
-    }
-    if(m=="2")
-    {
-        bb="c";
-    }
-    if(m=="3")
-    {
-        bb="c";
-    }
-    new_string[j]=bb;
-    
-  }
-
-  for(let k=0; k<=new_string.length(); k++)
-  {
-    let o=new_string[k];
-    let button=document.getElementsByName(o)[k];
-    if (button)
+let ustring="";
+let level=0;
+let idx=0;
+let start=false;
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const levelup=async()=>
 {
-    button.click();
+  level++;
+   let upp=document.getElementById("di");
+   upp.innerText=level;
+   let option=["a","b","c","d"];
+   let rand=Math.floor(Math.random() * 4)
+   string=string + option[rand];
 
-setTimeout(() => 
+   for(let i=0; i<=string.length-1; i++)
+   {
+          let e=document.getElementById(string[i])
+          console.log(string[i]);
+          await sleep(800);
+          e.classList.add("active");
+          await sleep(800);
+          e.classList.remove("active");
+          await sleep(800);
+
+   }
+ 
+
+
+}
+buttons.forEach(bb=>
+{
+   bb.addEventListener("click",async()=>
 {
 
-}, 2000);
-}
+    let idd=bb.getAttribute("id");
 
-}
- while(third_string.length()<= new_string.length())
- { 
-a.addEventListener('click',handler);
-b.addEventListener('click',handler);
-c.addEventListener('click',handler);
-d.addEventListener('click',handler);
+    if(idd=="start")
+    {  if(!start)
 
-if((third_string.length()== new_string.length()) && (third_string==new_string))
-{ div.innerHTML=`level ${ aa }`;
-aa++;
-    break;
-}
- }
-}
+      {   start=true;
+       await levelup();
+    }
+    }
 
+ if(idd =="a"||idd =="b" ||idd =="c"||idd =="d" ) 
+{    let  e=document.getElementById(idd);
+     e.classList.add("active");
+          await sleep(800);
+          e.classList.remove("active");
+          await sleep(800);
+      console.log(idd)    
+    ustring= ustring + idd;
+    
+if(ustring[idx]!==string[idx])
+{
+    console.log("game over");
+    document.body.style.backgroundColor="red";
+    let upp=document.getElementById("di");
+   upp.innerText= "game over";
+
+    start = false;
+    string = "";
+    ustring = "";
+    level = 0;
+    idx = 0;
+    return;
 }
-function handler(e)
-{   third_string=third_string + e.target.name;
+idx ++;
+if(ustring.length === string.length)
+{    ustring="";
+    idx=0;
+  await  levelup();
     
 }
 
-function hand(e)
-{    
-    if(aa==0)
-{   startcond=true;
-bigcod();
+    
 }
-   
 }
-start.addEventListener('click',hand)
+);
+
+
+});
