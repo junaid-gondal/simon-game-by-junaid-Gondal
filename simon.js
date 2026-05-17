@@ -4,6 +4,7 @@ let ustring="";
 let level=0;
 let idx=0;
 let start=false;
+let con=true;
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 let audioelement= new Audio('1.m4a');
 let audioelement2= new Audio('2.weba');
@@ -12,15 +13,15 @@ async function levelup()
   level++;
    let upp=document.getElementById("di");
    upp.innerText="Level  " + level;
-   for( let i=0; i<level; i++)
-   {let option=["a","b","c","d"];
+   
+   let option=["a","b","c","d"];
    let rand=Math.floor(Math.random() * 4)
-   string=string + option[rand];}
+   string=string + option[rand];
 
-   for(let i=0; i<=string.length-1; i++)
-   {
-          let e=document.getElementById(string[i])
-          console.log(string[i]);
+   
+   
+          let e=document.getElementById(string[string.length-1])
+          console.log(string[string.length-1]);
           await sleep(800);
           e.classList.add("active");
           audioelement.play()
@@ -28,20 +29,17 @@ async function levelup()
           e.classList.remove("active");
           await sleep(800);
 
-   }
- 
-
-
 }
 buttons.forEach(bb=>
 {
    bb.addEventListener("click",async()=>
-{
+{  
 
     let idd=bb.getAttribute("id");
-
-    if(idd=="start")
+     
+    if(idd=="start" && con==true)
     { audioelement.play()
+
        if(!start)
 
       {   start=true;
@@ -62,13 +60,14 @@ buttons.forEach(bb=>
 if(ustring[idx]!==string[idx])
 {
     console.log("game over");
+    con=false;
     document.body.style.backgroundColor="red";
     let upp=document.getElementById("di");
    upp.innerText= "game over";
    audioelement2.play();
 
    
-
+    
     start = false;
     string = "";
     ustring = "";
@@ -83,7 +82,7 @@ idx ++;
 if(ustring.length === string.length)
 {    ustring="";
     idx=0;
-    string="";
+    
   await  levelup();
     
 }
@@ -95,3 +94,4 @@ if(ustring.length === string.length)
 
 
 });
+
